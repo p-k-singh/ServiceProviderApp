@@ -1,0 +1,249 @@
+import React, { useState } from 'react'
+import { makeStyles } from '@material-ui/core/styles';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import './NewOrder.css';
+import {
+    TextField,
+    Grid,
+    FormControlLabel,
+    Checkbox,
+    Card,
+    Button,
+    Divider,
+    InputAdornment
+  } from '@material-ui/core'
+const useStyles = makeStyles({
+    root: {
+        // minWidth: 275,
+    },
+    title: {
+        fontSize: 20,
+        height: 50,
+        padding: 10,
+        paddingLeft: 55,
+        color: 'white'
+    },
+    formHeadings: {
+        margin: 20,
+        marginBottom: 0
+    },
+    formControl: {
+        marginTop:'1%'
+    }
+});
+
+const NewOrder = (props) => {
+    const classes = useStyles();
+
+    //State Variables for form fields
+
+    const [driverName, setDriverName] = useState('');
+    const [driverPhoneNumber, setDriverPhoneNumber] = useState(0);
+    const [truckNumber, setTruckNumber] = useState(0);
+    const [estimatedPickupDate, setEstimatedPickupDate] = useState('');
+    const [estimatedDeliveryDate, setEstimatedDeliveryDate] = useState('');
+
+
+    const onDriverNameChangeController=(event)=>{
+        var nameOfDriver=event.target.value;
+        setDriverName(nameOfDriver);
+    }
+    const onDriverPhoneChangeController=(event)=>{
+        var driverPhone=event.target.value;
+        setDriverPhoneNumber(driverPhone);
+    }
+
+    const onTruckNumberChangeController=(event)=>{
+        var truckNumber=event.target.value;
+        setTruckNumber(truckNumber);
+    }
+
+    const onPickupDateChangeController=(event)=>{
+        var pickupDate=event.target.value;
+        setEstimatedPickupDate(pickupDate)
+        
+    }
+
+    const onDeliveryDateChangeController=(event)=>{
+        var deliveryDate=event.target.value;
+        setEstimatedDeliveryDate(deliveryDate);
+    }
+
+    const handleServiceOrderClick=()=>{
+        alert("Data is: "+driverName+", "+driverPhoneNumber+", "+truckNumber+", "+estimatedPickupDate+", "+estimatedDeliveryDate);
+    }
+    
+    return (
+                    <div>    
+                        <Card className={classes.root}>  
+                            <CardContent style={{ padding: 0 }}>
+                                <Typography className={classes.title} gutterBottom style={{ backgroundColor: '#66bb6a' }}>
+                                    Service Order Form
+                                </Typography>
+                                <form>
+                                    <Grid container spacing={3} style={{ padding: 50, paddingTop: 10, paddingBottom: 30 }}>
+                                        <Grid item xs={12} sm={8}>
+                                            <TextField
+                                            required
+                                            id="DriverName"
+                                            name="DriverName"
+                                            label="Driver Name"
+                                            fullWidth
+                                            autoComplete="given-name"
+                                            onChange={(event)=>onDriverNameChangeController(event)}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={12} sm={6}>
+                                            <TextField
+                                            required
+                                            type="number"
+                                            id="DriverPhone"
+                                            name="DriverPhone"
+                                            label="Driver Phone Number"
+                                            fullWidth
+                                            
+                                            autoComplete="Phone"
+                                            onChange={(event)=>onDriverPhoneChangeController(event)}
+                                            InputProps={{
+                                                startAdornment: <InputAdornment position="start">+91</InputAdornment>,
+                                            }}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={12} sm={6}>
+                                        <TextField
+                                            required
+                                            type="number"
+                                            id="truckNumber"
+                                            name="truckNumber"
+                                            label="Truck number"
+                                            fullWidth
+                                            autoComplete="truck-number"
+                                            onChange={(event)=>onTruckNumberChangeController(event)}
+                                            />
+                                        </Grid>
+
+                                    
+
+                                        <Grid item xs={12} sm={6}>
+                                            <TextField
+                                                id="datetime-pickup"
+                                                label="Estimated pickup"
+                                                type="datetime-local"
+                                                onChange={(event)=>onPickupDateChangeController(event)}
+                                                className={classes.textField}
+                                                InputLabelProps={{
+                                                shrink: true,
+                                                }}
+                                            />
+                                        </Grid>
+
+                                        <Grid item xs={12} sm={6}>
+                                            <TextField
+                                                id="datetime-delivery"
+                                                label="Estimated delivery"
+                                                onChange={(event)=>onDeliveryDateChangeController(event)}
+                                                type="datetime-local"
+                                                className={classes.textField}
+                                                InputLabelProps={{
+                                                shrink: true,
+                                                }}
+                                            />
+                                        </Grid>
+                                    
+                                    </Grid>
+                                </form>
+                            </CardContent>
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    justifyContent: 'flex-end',
+                                    margin: 20
+                                }}
+                            >
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={handleServiceOrderClick}>
+                                    Submit
+                                </Button>                      
+                            </div>
+                        </Card>
+                        
+
+                        <CardContent style={{ padding: 0,marginTop:10 }}>
+                                <Typography className={classes.title} gutterBottom style={{ backgroundColor: '#66bb6a' }}>
+                                    Order Details
+                                </Typography>
+                                <table>
+                                    <Grid container spacing={3} style={{ padding: 50, paddingTop: 10, paddingBottom: 30 }}>
+                                        <Grid item xs={12} sm={6} >
+                                            <tr>
+                                                <th scope="row">Order Number</th>
+                                                <td>2020</td>
+                                            </tr>
+                                        </Grid>
+                                        <Grid item xs={12} sm={6} >
+                                            <tr>
+                                                <th scope="row">Order Date</th>
+                                                <td>30th May 2003</td>
+                                            </tr>
+                                        </Grid>
+                                        <Grid item xs={12} sm={6}>
+                                            <tr>
+                                                <th scope="row">Customer name</th>
+                                                <td>Gaurav Damani</td>
+                                            </tr>
+                                        </Grid>
+                                        <Grid item xs={12} sm={6}>
+                                            <tr>
+                                                <th scope="row">Customer email</th>
+                                                <td>abcd@gmail.com</td>
+                                            </tr>
+                                        </Grid>
+                                        <Grid item xs={12} sm={6}>
+                                            <tr>
+                                                <th scope="row">Pickup Address</th>
+                                                <td>24, NS Road,Liluah,711204</td>
+                                            </tr>
+                                        </Grid>
+                                        <Grid item xs={12} sm={6}>
+                                            <tr>
+                                                <th scope="row">Destination Address</th>
+                                                <td>24, BS Road,Howrah,711208</td>
+                                            </tr>
+                                        </Grid>
+                                        <Grid item xs={12} sm={6}>
+                                            <tr>
+                                                <th scope="row">Number of units</th>
+                                                <td>5</td>
+                                            </tr>
+                                        </Grid>
+                                        <Grid item xs={12} sm={6}>
+                                            <tr>
+                                                <th scope="row">Weight per unit</th>
+                                                <td>20 kg</td>
+                                            </tr>
+                                        </Grid>
+                                        <Grid item xs={12} sm={6}>
+                                            <tr>
+                                                <th scope="row">Dimension per unit</th>
+                                                <td>20 x 30 x 40 cm </td>
+                                            </tr>
+                                        </Grid>
+
+                                    </Grid>
+                                </table>
+                        </CardContent>
+                        
+
+
+                        
+                    </div>
+    )
+}
+
+export default NewOrder;
+
+

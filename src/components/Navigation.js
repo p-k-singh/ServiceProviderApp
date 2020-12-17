@@ -85,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
-        width: theme.spacing(7),
+        width: theme.spacing(0),
         [theme.breakpoints.up('sm')]: {
             width: theme.spacing(9),
         },
@@ -114,6 +114,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
     const list = [
         { title: 'Dashboard', to: '/', icon:<DashboardIcon/> },
+        { title: 'Order', to: '/order', icon:<AddShoppingCartIcon/> },
     ]
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);

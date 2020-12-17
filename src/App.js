@@ -4,7 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Navigation from './components/Navigation'
 import Home from './components/Home'
-
+import NewOrder from './components/NewOrder'
+import OrderDetail from './components/OrderDetail'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,14 +15,15 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end',
-    padding: theme.spacing(0, 1),
+    padding: theme.spacing(0, 0),
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: theme.spacing(1),
   },
+
 }));
 
 function App() {
@@ -38,6 +40,10 @@ function App() {
         <Switch>
           {/* Home page (DashBoard Content) */}
           <Route exact path="/" component={Home} />
+          <Route exact path="/order" component={NewOrder} />
+          <Route path='/order/:id' render={(props) => {
+                    return ( <OrderDetail {...props } /> )
+                }} />
         </Switch>
       </main>
     </div>
