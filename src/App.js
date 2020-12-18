@@ -1,12 +1,12 @@
 import { Switch, Route } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 
-
+import './App.css'
 import Navigation from './components/Navigation'
 import Home from './components/Home'
 import NewOrder from './components/NewOrder'
 import OrderDetail from './components/OrderDetail'
-
+import CapacityManagement from './components/CapacityManagement'
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -44,6 +44,7 @@ function App() {
           <Route path='/order/:id' render={(props) => {
                     return ( <OrderDetail {...props } /> )
                 }} />
+          <Route path='/capacity' component={CapacityManagement}/>
         </Switch>
       </main>
     </div>

@@ -15,6 +15,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import DashboardIcon from '@material-ui/icons/Dashboard';
+import BatteryFullIcon from '@material-ui/icons/BatteryFull';
 import {
     ListItem,
     ListItemText,
@@ -115,6 +116,7 @@ export default function Dashboard() {
     const list = [
         { title: 'Dashboard', to: '/', icon:<DashboardIcon/> },
         { title: 'Order', to: '/order', icon:<AddShoppingCartIcon/> },
+        { title: 'Capacity Manager', to: '/capacity', icon:<BatteryFullIcon/> }
     ]
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);

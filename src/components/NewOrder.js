@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import './NewOrder.css';
+import constants from '../Constants/constants';
 import {
     TextField,
     Grid,
@@ -83,15 +84,17 @@ const NewOrder = (props) => {
                                 </Typography>
                                 <form>
                                     <Grid container spacing={3} style={{ padding: 50, paddingTop: 10, paddingBottom: 30 }}>
+                                        
                                         <Grid item xs={12} sm={8}>
                                             <TextField
-                                            required
-                                            id="DriverName"
-                                            name="DriverName"
-                                            label="Driver Name"
-                                            fullWidth
-                                            autoComplete="given-name"
-                                            onChange={(event)=>onDriverNameChangeController(event)}
+                                                required
+                                                type="number"
+                                                id="truckNumber"
+                                                name="truckNumber"
+                                                label={constants.truckNumber}
+                                                fullWidth
+                                                autoComplete="truck-number"
+                                                onChange={(event)=>onTruckNumberChangeController(event)}
                                             />
                                         </Grid>
                                         <Grid item xs={12} sm={6}>
@@ -100,7 +103,7 @@ const NewOrder = (props) => {
                                             type="number"
                                             id="DriverPhone"
                                             name="DriverPhone"
-                                            label="Driver Phone Number"
+                                            label={constants.driverNumber}
                                             fullWidth
                                             
                                             autoComplete="Phone"
@@ -111,15 +114,14 @@ const NewOrder = (props) => {
                                             />
                                         </Grid>
                                         <Grid item xs={12} sm={6}>
-                                        <TextField
-                                            required
-                                            type="number"
-                                            id="truckNumber"
-                                            name="truckNumber"
-                                            label="Truck number"
-                                            fullWidth
-                                            autoComplete="truck-number"
-                                            onChange={(event)=>onTruckNumberChangeController(event)}
+                                            <TextField
+                                                required
+                                                id="DriverName"
+                                                name="DriverName"
+                                                label={constants.driverName}
+                                                fullWidth
+                                                autoComplete="given-name"
+                                                onChange={(event)=>onDriverNameChangeController(event)}
                                             />
                                         </Grid>
 
@@ -128,7 +130,7 @@ const NewOrder = (props) => {
                                         <Grid item xs={12} sm={6}>
                                             <TextField
                                                 id="datetime-pickup"
-                                                label="Estimated pickup"
+                                                label={constants.estimatedPickup}
                                                 type="datetime-local"
                                                 onChange={(event)=>onPickupDateChangeController(event)}
                                                 className={classes.textField}
@@ -141,7 +143,7 @@ const NewOrder = (props) => {
                                         <Grid item xs={12} sm={6}>
                                             <TextField
                                                 id="datetime-delivery"
-                                                label="Estimated delivery"
+                                                label={constants.estimatedDelivery}
                                                 onChange={(event)=>onDeliveryDateChangeController(event)}
                                                 type="datetime-local"
                                                 className={classes.textField}
@@ -178,57 +180,42 @@ const NewOrder = (props) => {
                                 </Typography>
                                 <table>
                                     <Grid container spacing={3} style={{ padding: 50, paddingTop: 10, paddingBottom: 30 }}>
-                                        <Grid item xs={12} sm={6} >
-                                            <tr>
-                                                <th scope="row">Order Number</th>
-                                                <td>2020</td>
-                                            </tr>
-                                        </Grid>
+                                        
                                         <Grid item xs={12} sm={6} >
                                             <tr>
                                                 <th scope="row">Order Date</th>
                                                 <td>30th May 2003</td>
                                             </tr>
                                         </Grid>
+                                        
+                                        
                                         <Grid item xs={12} sm={6}>
                                             <tr>
-                                                <th scope="row">Customer name</th>
-                                                <td>Gaurav Damani</td>
-                                            </tr>
-                                        </Grid>
-                                        <Grid item xs={12} sm={6}>
-                                            <tr>
-                                                <th scope="row">Customer email</th>
-                                                <td>abcd@gmail.com</td>
-                                            </tr>
-                                        </Grid>
-                                        <Grid item xs={12} sm={6}>
-                                            <tr>
-                                                <th scope="row">Pickup Address</th>
+                                                <th scope="row">{constants.pickupAddress}</th>
                                                 <td>24, NS Road,Liluah,711204</td>
                                             </tr>
                                         </Grid>
                                         <Grid item xs={12} sm={6}>
                                             <tr>
-                                                <th scope="row">Destination Address</th>
+                                                <th scope="row">{constants.destinationAddress}</th>
                                                 <td>24, BS Road,Howrah,711208</td>
                                             </tr>
                                         </Grid>
                                         <Grid item xs={12} sm={6}>
                                             <tr>
-                                                <th scope="row">Number of units</th>
+                                                <th scope="row">{constants.noOfUnits}</th>
                                                 <td>5</td>
                                             </tr>
                                         </Grid>
                                         <Grid item xs={12} sm={6}>
                                             <tr>
-                                                <th scope="row">Weight per unit</th>
+                                                <th scope="row">{constants.weightPerUnit}</th>
                                                 <td>20 kg</td>
                                             </tr>
                                         </Grid>
                                         <Grid item xs={12} sm={6}>
                                             <tr>
-                                                <th scope="row">Dimension per unit</th>
+                                                <th scope="row">{constants.DimensionPerUnit}</th>
                                                 <td>20 x 30 x 40 cm </td>
                                             </tr>
                                         </Grid>
@@ -236,7 +223,7 @@ const NewOrder = (props) => {
                                     </Grid>
                                 </table>
                         </CardContent>
-                        
+                    
 
 
                         
