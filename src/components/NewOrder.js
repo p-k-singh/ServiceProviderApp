@@ -99,6 +99,17 @@ const NewOrder = (props) => {
                                         </Grid>
                                         <Grid item xs={12} sm={6}>
                                             <TextField
+                                                required
+                                                id="DriverName"
+                                                name="DriverName"
+                                                label={constants.driverName}
+                                                fullWidth
+                                                autoComplete="given-name"
+                                                onChange={(event)=>onDriverNameChangeController(event)}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={12} sm={6}>
+                                            <TextField
                                             required
                                             type="number"
                                             id="DriverPhone"
@@ -113,17 +124,7 @@ const NewOrder = (props) => {
                                             }}
                                             />
                                         </Grid>
-                                        <Grid item xs={12} sm={6}>
-                                            <TextField
-                                                required
-                                                id="DriverName"
-                                                name="DriverName"
-                                                label={constants.driverName}
-                                                fullWidth
-                                                autoComplete="given-name"
-                                                onChange={(event)=>onDriverNameChangeController(event)}
-                                            />
-                                        </Grid>
+                                        
 
                                     
 
