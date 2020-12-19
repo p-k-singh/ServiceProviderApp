@@ -115,7 +115,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
     const list = [
         { title: 'Dashboard', to: '/', icon:<DashboardIcon/> },
-        { title: 'Order', to: '/order', icon:<AddShoppingCartIcon/> },
+        { title: 'My Orders', to: '/my-orders', icon:<AddShoppingCartIcon/> },
         { title: 'Capacity Manager', to: '/capacity', icon:<BatteryFullIcon/> }
     ]
     const classes = useStyles();

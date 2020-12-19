@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import './NewOrder.css';
-import constants from '../Constants/constants';
-import OrderDetails from './OrderDetails/OrderDetails'
+import OrderDetails from '../OrderDetails/OrderDetails';
+import constants from '../../Constants/constants';
 import {
     TextField,
     Grid,
@@ -35,7 +34,7 @@ const useStyles = makeStyles({
     }
 });
 
-const NewOrder = (props) => {
+const AllocationForm = (props) => {
     const classes = useStyles();
 
     //State Variables for form fields
@@ -81,23 +80,11 @@ const NewOrder = (props) => {
                         <Card className={classes.root}>  
                             <CardContent style={{ padding: 0 }}>
                                 <Typography className={classes.title} gutterBottom style={{ backgroundColor: '#66bb6a' }}>
-                                    Service Order Form
+                                    Driver Allocation Form
                                 </Typography>
                                 <form>
                                     <Grid container spacing={3} style={{ padding: 50, paddingTop: 10, paddingBottom: 30 }}>
                                         
-                                        <Grid item xs={12} sm={8}>
-                                            <TextField
-                                                required
-                                                type="number"
-                                                id="truckNumber"
-                                                name="truckNumber"
-                                                label={constants.truckNumber}
-                                                fullWidth
-                                                autoComplete="truck-number"
-                                                onChange={(event)=>onTruckNumberChangeController(event)}
-                                            />
-                                        </Grid>
                                         <Grid item xs={12} sm={6}>
                                             <TextField
                                                 required
@@ -185,6 +172,7 @@ const NewOrder = (props) => {
     )
 }
 
-export default NewOrder;
+export default AllocationForm;
+
 
 

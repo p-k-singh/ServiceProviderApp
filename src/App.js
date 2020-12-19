@@ -7,6 +7,10 @@ import Home from './components/Home'
 import NewOrder from './components/NewOrder'
 import OrderDetail from './components/OrderDetail'
 import CapacityManagement from './components/CapacityManagement'
+import AcceptanceForm from './components/AcceptanceForm'
+import MyOrders from './components/MyOrders/MyOrders'
+import AllocationForm from './components/Allocation/AllocationForm'
+import AssignmentForm from './components/Assignment/Assignment'
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -40,11 +44,15 @@ function App() {
         <Switch>
           {/* Home page (DashBoard Content) */}
           <Route exact path="/" component={Home} />
-          <Route exact path="/order" component={NewOrder} />
+         
+          <Route exact path="/accept-order" component={AcceptanceForm} />
+          <Route exact path="/allocation" component={AllocationForm} />
+          <Route exact path="/assignment" component={AssignmentForm} />
           <Route path='/order/:id' render={(props) => {
                     return ( <OrderDetail {...props } /> )
                 }} />
           <Route path='/capacity' component={CapacityManagement}/>
+          <Route path='/my-orders' component={MyOrders}/>
         </Switch>
       </main>
     </div>
