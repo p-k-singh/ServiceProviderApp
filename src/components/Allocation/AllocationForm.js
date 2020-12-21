@@ -4,6 +4,9 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import OrderDetails from '../OrderDetails/OrderDetails';
 import constants from '../../Constants/constants';
+import './AllocationForm.css';
+import PhoneIcon from '@material-ui/icons/Phone';
+import PersonIcon from '@material-ui/icons/Person';
 import {
     TextField,
     Grid,
@@ -39,26 +42,26 @@ const AllocationForm = (props) => {
 
     //State Variables for form fields
 
-    const [driverName, setDriverName] = useState('');
-    const [driverPhoneNumber, setDriverPhoneNumber] = useState(0);
-    const [truckNumber, setTruckNumber] = useState(0);
+    const [driverName, setDriverName] = useState([]);
+    const [driverPhoneNumber, setDriverPhoneNumber] = useState([]);
+    const [numberOfDrivers,setNumberOfDrivers]=useState(2);
     const [estimatedPickupDate, setEstimatedPickupDate] = useState('');
     const [estimatedDeliveryDate, setEstimatedDeliveryDate] = useState('');
 
 
-    const onDriverNameChangeController=(event)=>{
-        var nameOfDriver=event.target.value;
-        setDriverName(nameOfDriver);
+    const onDriverNameChangeController=(event,index)=>{
+        let driverNameArr = driverName.slice(); 
+        var currentDriverName=event.target.value;
+        driverNameArr[index] = currentDriverName;
+        setDriverName(driverNameArr);
     }
-    const onDriverPhoneChangeController=(event)=>{
-        var driverPhone=event.target.value;
-        setDriverPhoneNumber(driverPhone);
+    const onDriverPhoneChangeController=(event,index)=>{
+        let driverPhoneArr = driverPhoneNumber.slice(); 
+        var currentDriverPhone=event.target.value;
+        driverPhoneArr[index] = currentDriverPhone;
+        setDriverPhoneNumber(driverPhoneArr);
     }
 
-    const onTruckNumberChangeController=(event)=>{
-        var truckNumber=event.target.value;
-        setTruckNumber(truckNumber);
-    }
 
     const onPickupDateChangeController=(event)=>{
         var pickupDate=event.target.value;
@@ -72,8 +75,55 @@ const AllocationForm = (props) => {
     }
 
     const handleServiceOrderClick=()=>{
-        alert("Data is: "+driverName+", "+driverPhoneNumber+", "+truckNumber+", "+estimatedPickupDate+", "+estimatedDeliveryDate);
+        const driversArray=[];
+            for(var i=0;i<numberOfDrivers;i++){
+                const driver={
+                    driverName:driverName[i],
+                    driverPhoneNumber:driverPhoneNumber[i]
+                }
+                driversArray.push(driver);
+            }
+        alert(JSON.stringify(driversArray));
+        console.log(estimatedPickupDate,estimatedDeliveryDate);
     }
+
+    let content=Array.apply(null, { length:numberOfDrivers}).map((e, i) => (
+            <React.Fragment>
+                <Typography className={classes.formHeadings}>Truck Number : {i+1}</Typography>
+                    <Grid container spacing={3} style={{ padding: 50, paddingTop: 10, paddingBottom: 30 }}>
+                            <Grid item xs={12} sm={6}>
+                                <TextField
+                                    required
+                                    id="DriverName"
+                                    name="DriverName"
+                                    label={constants.driverName}
+                                    fullWidth
+                                    autoComplete="given-name"
+                                    onChange={(event)=>onDriverNameChangeController(event,i)}
+                                    InputProps={{
+                                        startAdornment: <PersonIcon/>,
+                                    }}
+                                />
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                                <TextField
+                                required
+                                type="number"
+                                id="DriverPhone"
+                                name="DriverPhone"
+                                label={constants.driverNumber}
+                                fullWidth
+                                
+                                autoComplete="Phone"
+                                onChange={(event)=>onDriverPhoneChangeController(event,i)}
+                                InputProps={{
+                                    startAdornment: <PhoneIcon/>,
+                                }}
+                                />
+                            </Grid>
+                        </Grid>
+            </React.Fragment>
+    ));
     
     return (
                     <div>    
@@ -82,40 +132,13 @@ const AllocationForm = (props) => {
                                 <Typography className={classes.title} gutterBottom style={{ backgroundColor: '#66bb6a' }}>
                                     Driver Allocation Form
                                 </Typography>
+                                 <div>
+                                    <img src="https://us.123rf.com/450wm/patrimonio/patrimonio1410/patrimonio141000034/32311174-stock-vector-illustration-of-a-flatbed-truck-with-driver-waving-hello-on-isolated-white-background-done-in-cartoo.jpg?ver=6"  className="formImage" alt="recipe thumbnail"/>
+                                </div>
                                 <form>
-                                    <Grid container spacing={3} style={{ padding: 50, paddingTop: 10, paddingBottom: 30 }}>
-                                        
-                                        <Grid item xs={12} sm={6}>
-                                            <TextField
-                                                required
-                                                id="DriverName"
-                                                name="DriverName"
-                                                label={constants.driverName}
-                                                fullWidth
-                                                autoComplete="given-name"
-                                                onChange={(event)=>onDriverNameChangeController(event)}
-                                            />
-                                        </Grid>
-                                        <Grid item xs={12} sm={6}>
-                                            <TextField
-                                            required
-                                            type="number"
-                                            id="DriverPhone"
-                                            name="DriverPhone"
-                                            label={constants.driverNumber}
-                                            fullWidth
-                                            
-                                            autoComplete="Phone"
-                                            onChange={(event)=>onDriverPhoneChangeController(event)}
-                                            InputProps={{
-                                                startAdornment: <InputAdornment position="start">+91</InputAdornment>,
-                                            }}
-                                            />
-                                        </Grid>
-                                        
-
                                     
-
+                                    {content}
+                                    <Grid container spacing={3} style={{ padding: 50, paddingTop: 10, paddingBottom: 30 }}>
                                         <Grid item xs={12} sm={6}>
                                             <TextField
                                                 id="datetime-pickup"

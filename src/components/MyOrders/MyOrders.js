@@ -4,12 +4,13 @@ import Divider from '@material-ui/core/Divider';
 import './MyOrders.css'
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import DeleteIcon from '@material-ui/icons/Delete';
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import TrackChangesIcon from '@material-ui/icons/TrackChanges';
 import TodayIcon from '@material-ui/icons/Today';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import Typography from '@material-ui/core/Typography';
+import LocalShippingIcon from '@material-ui/icons/LocalShipping';
+import PersonIcon from '@material-ui/icons/Person';
 
 const useStyles = makeStyles((theme) => ({
     '@keyframes blinker': {
@@ -58,7 +59,7 @@ const MyOrders=()=>{
                                         variant="contained"
                                         color="default"
                                         className={classes.allocationButton}
-                                        startIcon={<AssignmentTurnedInIcon />}>
+                                        startIcon={<LocalShippingIcon />}>
                                         Assign
                                 </Button>
                             </div>
@@ -78,7 +79,7 @@ const MyOrders=()=>{
                                     variant="contained"
                                     color="default"
                                     className={classes.allocationButton}
-                                    startIcon={<AssignmentIndIcon />}>
+                                    startIcon={<PersonIcon />}>
                                     Allocate
                                 </Button>
                             </div>
