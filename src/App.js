@@ -6,6 +6,7 @@ import Navigation from './components/Navigation'
 import Home from './components/Home'
 import NewOrder from './components/NewOrder'
 import OrderDetail from './components/OrderDetail'
+import Details from './components/Details'
 import CapacityManagement from './components/CapacityManagement'
 import AcceptanceForm from './components/AcceptanceForm'
 import MyOrders from './components/MyOrders/MyOrders'
@@ -48,6 +49,7 @@ function App() {
           <Route exact path="/accept-order" component={AcceptanceForm} />
           <Route exact path="/allocation" component={AllocationForm} />
           <Route exact path="/assignment" component={AssignmentForm} />
+          <Route exact path="/details" component={Details} />
           <Route path='/order/:id' render={(props) => {
                     return ( <OrderDetail {...props } /> )
                 }} />

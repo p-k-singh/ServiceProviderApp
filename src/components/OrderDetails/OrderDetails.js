@@ -1,4 +1,5 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react';
+import axios from 'axios';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import constants from '../../Constants/constants';
@@ -36,7 +37,25 @@ import {
 });
 const OrderDetails = (props) => {
     const classes=useStyles();
+    const [allDetails,setAllDetails] = useState(null);
+    useEffect(()=>{
+        const url='https://2n3n7swm8f.execute-api.ap-south-1.amazonaws.com/draft0/customerorder/'+props.id;
+        console.log(url);
+        axios.get(url)
+        .then(resp=>{
+            console.log(resp.data.Item);
+            setAllDetails(resp.data.Item);
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    },[]);
+    if(allDetails==null){
+        return(<div><h1>Loading</h1></div>);
+    }
+    else
     return (
+
         <Card className={classes.root}>
             <CardContent style={{ padding: 0,marginTop:10 }}>
                                 <Typography className={classes.title} gutterBottom style={{ backgroundColor: '#66bb6a' }}>
@@ -56,31 +75,31 @@ const OrderDetails = (props) => {
                                         <Grid item xs={12} sm={6}>
                                             <tr>
                                                 <th scope="row">{constants.pickupAddress}</th>
-                                                <td>24, NS Road,Liluah,711204</td>
+                                                <td>{allDetails.fromAddress},{allDetails.fromPin}</td>
                                             </tr>
                                         </Grid>
                                         <Grid item xs={12} sm={6}>
                                             <tr>
                                                 <th scope="row">{constants.destinationAddress}</th>
-                                                <td>24, BS Road,Howrah,711208</td>
+                                                <td>{allDetails.toAddress},{allDetails.toPin}</td>
                                             </tr>
                                         </Grid>
                                         <Grid item xs={12} sm={6}>
                                             <tr>
                                                 <th scope="row">{constants.noOfUnits}</th>
-                                                <td>5</td>
+                                                <td>{allDetails.noOfUnits}</td>
                                             </tr>
                                         </Grid>
                                         <Grid item xs={12} sm={6}>
                                             <tr>
                                                 <th scope="row">{constants.weightPerUnit}</th>
-                                                <td>20 kg</td>
+                                                <td>{allDetails.weightPerUnit} kg</td>
                                             </tr>
                                         </Grid>
                                         <Grid item xs={12} sm={6}>
                                             <tr>
                                                 <th scope="row">{constants.DimensionPerUnit}</th>
-                                                <td>20 x 30 x 40 cm </td>
+                                                <td>{allDetails.width} x {allDetails.height} x {allDetails.breadth} {allDetails.unit} </td>
                                             </tr>
                                         </Grid>
 
