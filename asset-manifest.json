@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/ServiceProviderApp/static/css/main.aab9351e.chunk.css",
-    "main.js": "/ServiceProviderApp/static/js/main.b6579d47.chunk.js",
-    "main.js.map": "/ServiceProviderApp/static/js/main.b6579d47.chunk.js.map",
+    "main.js": "/ServiceProviderApp/static/js/main.30750250.chunk.js",
+    "main.js.map": "/ServiceProviderApp/static/js/main.30750250.chunk.js.map",
     "runtime-main.js": "/ServiceProviderApp/static/js/runtime-main.b990bf0d.js",
     "runtime-main.js.map": "/ServiceProviderApp/static/js/runtime-main.b990bf0d.js.map",
-    "static/js/2.91b2b8da.chunk.js": "/ServiceProviderApp/static/js/2.91b2b8da.chunk.js",
-    "static/js/2.91b2b8da.chunk.js.map": "/ServiceProviderApp/static/js/2.91b2b8da.chunk.js.map",
+    "static/js/2.66481944.chunk.js": "/ServiceProviderApp/static/js/2.66481944.chunk.js",
+    "static/js/2.66481944.chunk.js.map": "/ServiceProviderApp/static/js/2.66481944.chunk.js.map",
     "static/js/3.c3b758d0.chunk.js": "/ServiceProviderApp/static/js/3.c3b758d0.chunk.js",
     "static/js/3.c3b758d0.chunk.js.map": "/ServiceProviderApp/static/js/3.c3b758d0.chunk.js.map",
     "index.html": "/ServiceProviderApp/index.html",
     "static/css/main.aab9351e.chunk.css.map": "/ServiceProviderApp/static/css/main.aab9351e.chunk.css.map",
-    "static/js/2.91b2b8da.chunk.js.LICENSE.txt": "/ServiceProviderApp/static/js/2.91b2b8da.chunk.js.LICENSE.txt"
+    "static/js/2.66481944.chunk.js.LICENSE.txt": "/ServiceProviderApp/static/js/2.66481944.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b990bf0d.js",
-    "static/js/2.91b2b8da.chunk.js",
+    "static/js/2.66481944.chunk.js",
     "static/css/main.aab9351e.chunk.css",
-    "static/js/main.b6579d47.chunk.js"
+    "static/js/main.30750250.chunk.js"
   ]
 }
