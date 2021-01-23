@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/ServiceProviderApp/static/css/main.da3b2914.chunk.css",
-    "main.js": "/ServiceProviderApp/static/js/main.fddb25ff.chunk.js",
-    "main.js.map": "/ServiceProviderApp/static/js/main.fddb25ff.chunk.js.map",
+    "main.js": "/ServiceProviderApp/static/js/main.82173f31.chunk.js",
+    "main.js.map": "/ServiceProviderApp/static/js/main.82173f31.chunk.js.map",
     "runtime-main.js": "/ServiceProviderApp/static/js/runtime-main.31427be9.js",
     "runtime-main.js.map": "/ServiceProviderApp/static/js/runtime-main.31427be9.js.map",
-    "static/js/2.5e7f08d9.chunk.js": "/ServiceProviderApp/static/js/2.5e7f08d9.chunk.js",
-    "static/js/2.5e7f08d9.chunk.js.map": "/ServiceProviderApp/static/js/2.5e7f08d9.chunk.js.map",
+    "static/js/2.ad23a447.chunk.js": "/ServiceProviderApp/static/js/2.ad23a447.chunk.js",
+    "static/js/2.ad23a447.chunk.js.map": "/ServiceProviderApp/static/js/2.ad23a447.chunk.js.map",
     "static/js/3.2f576f79.chunk.js": "/ServiceProviderApp/static/js/3.2f576f79.chunk.js",
     "static/js/3.2f576f79.chunk.js.map": "/ServiceProviderApp/static/js/3.2f576f79.chunk.js.map",
     "index.html": "/ServiceProviderApp/index.html",
     "static/css/main.da3b2914.chunk.css.map": "/ServiceProviderApp/static/css/main.da3b2914.chunk.css.map",
-    "static/js/2.5e7f08d9.chunk.js.LICENSE.txt": "/ServiceProviderApp/static/js/2.5e7f08d9.chunk.js.LICENSE.txt"
+    "static/js/2.ad23a447.chunk.js.LICENSE.txt": "/ServiceProviderApp/static/js/2.ad23a447.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.31427be9.js",
-    "static/js/2.5e7f08d9.chunk.js",
+    "static/js/2.ad23a447.chunk.js",
     "static/css/main.da3b2914.chunk.css",
-    "static/js/main.fddb25ff.chunk.js"
+    "static/js/main.82173f31.chunk.js"
   ]
 }
